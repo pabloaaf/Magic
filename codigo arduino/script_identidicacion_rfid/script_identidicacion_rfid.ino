@@ -9,9 +9,11 @@ MFRC522 mfrc522(SS_PIN, RST_PIN); //Creamos el objeto para el RC522
 byte ID_leido [4];
 
 byte ID_Usuario1 [4] = {0x23, 0x2D, 0x40, 0x02};
-byte ID_Usuario2 [4] = {0xD9, 0xE2, 0xF1, 0x75};
+byte ID_Usuario2 [4] = {0xF4, 0x9D, 0xD1, 0xB7};
 byte ID_Usuario3 [4] = {0x26, 0x8D, 0x89, 0x18};
-byte ID_Usuario4 [4] = {0xF4, 0x9D, 0xD1, 0xB7};
+byte ID_Usuario4 [4] = {0xD9, 0xE2, 0xF1, 0x75};
+
+
 
 void setup() {
   Serial.begin(9600); //Iniciamos la comunicación  serial
@@ -37,13 +39,13 @@ void loop() {
                   } 
                   // Serial.println();
                   if(compareID(ID_leido, ID_Usuario1)) {
-                    Serial.print("Hola Pablus");
+                    Serial.print("1");
                   }else if(compareID(ID_leido, ID_Usuario2)) {
-                    Serial.print("Hola Yogures");
+                    Serial.print("2");
                   }else if(compareID(ID_leido, ID_Usuario3)) {
-                    Serial.print("Hola Mateas");
+                    Serial.print("3");
                   }else if(compareID(ID_leido, ID_Usuario4)) {
-                    Serial.print("Hola Cago");
+                    Serial.print("4");
                   }
                   Serial.println();
                   // Terminamos la lectura de la tarjeta  actual
