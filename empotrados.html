@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	
+	<script>
+	function startDate() {
+		var today = new Date();
+		var h = today.getHours();
+		var m = today.getMinutes();
+		var s = today.getSeconds();
+		var city = "León";
+		var day = today.getDate();
+		var month = today.getMonth();
+		var year = today.getFullYear();
+		m = checkTime(m);
+		s = checkTime(s);
+		if (h < 13)
+			var d = "AM";
+		else
+			var d = "PM";
+		document.getElementById('hora').innerHTML =
+		h + ":" + m + ":" + s + "\t" + d;
+		
+		document.getElementById('fecha').innerHTML =
+		city + ", " + day + "/" + month + "/" + year;
+		
+		var t = setTimeout(startDate, 500);
+	}
+	
+	
+	function checkTime(i) {
+		if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+		return i;
+	}
+	
+	</script>
+</head>
+
+<body onload="startDate()">
+
+<a href="https://www.timeanddate.com/clocks/free.html">PAGINA CHUCHULI DE REJOJEEEES</a>
+
+
+<div id="hora"></div>
+
+
+<iframe src="http://free.timeanddate.com/clock/i603yqp6/n5646/szw110/szh110/hbw0/hfc000/cf100/hgr0/fav0/fiv0/mqcfff/mql15/mqw4/mqd94/mhcfff/mhl15/mhw4/mhd94/mmv0/hhcbbb/hmcddd/hsceee" frameborder="0" width="110" height="110"></iframe>
+
+
+<div id="fecha"></div>
+
+<br><br><br>
+
+</body>
+</html>
