@@ -1,5 +1,5 @@
-#include <SPI.h>
 #include <MFRC522.h>
+#include <SPI.h>
 
 #define RST_PIN  9    //Pin 9 para el reset del RC522
 #define SS_PIN  10   //Pin 10 para el SS (SDA) del RC522
@@ -19,7 +19,7 @@ void setup() {
   Serial.begin(9600); //Iniciamos la comunicación  serial
   SPI.begin();        //Iniciamos el Bus SPI
   mfrc522.PCD_Init(); // Iniciamos  el MFRC522
-  Serial.println("Lectura del UID");
+  //Serial.println("Lectura del UID");
 }
 
 void loop() {
@@ -30,10 +30,10 @@ void loop() {
             if ( mfrc522.PICC_ReadCardSerial()) 
             {
                   // Enviamos serialemente su UID
-                  // Serial.print("Card UID:");
+                  //Serial.print("Card UID:");
                   for (byte i = 0; i < mfrc522.uid.size; i++) {
-                          Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
-                          Serial.print(mfrc522.uid.uidByte[i], HEX);
+                          //Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
+                          //Serial.print(mfrc522.uid.uidByte[i], HEX);
 
                           ID_leido[i] = mfrc522.uid.uidByte[i];
                   } 
