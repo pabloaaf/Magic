@@ -9,7 +9,6 @@ import signal
 
 def identification():
     # Crea un objeto de la clase MFRC522
-    code = ""
     MIFAREReader = MFRC522.MFRC522()
     (status,TagType) = MIFAREReader.MFRC522_Request(MIFAREReader.PICC_REQIDL)
 
@@ -22,9 +21,9 @@ def identification():
 
     # Si el UID se obtiene correctamente busca en la bbdd el usuario. No coge los 0x
     if status == MIFAREReader.MI_OK:
-        code =  str(uid[0][2:]) + str(uid[1][2:]) + str(uid[2][2:]) + str(uid[3][2:])
-
-    return code;
+        return(str(uid[0])+","+str(uid[1])+","+str(uid[2])+","+str(uid[3]))
+    
+    return "";
 
 
 def check_RFID_code(code):
@@ -73,30 +72,26 @@ def insert_record_value(user_ID):
 
 '''
 try:
-	while True:
-    		arduino = serial.Serial('/dev/ttyACM0', 9600)
-    		state = arduino.readline().decode("utf-8")
-    		state = state[:-2]
-    		print(state)
-    		if(state == "Apagar"):
-    			#os.system("xset dpms force off")
-        		print("Se apaga")
-        
-    		elif(state == "Encender"):
-       			# os.system("xset dpms force on")
-        		code = identification()
-        
-        	if code is not "":
-            		check_RDIF_code(code)
-
-    		else:
-        		print("Mensaje recibido difiere al esperado")
-    		arduino.close()
+    while True:
+        arduino = serial.Serial('/dev/ttyACM0', 9600)
+        state = arduino.readline().decode("utf-8")
+        state = state[:-2]
+        print(state)
+        if(state == "Apagar"):
+            #os.system("xset dpms force off")
+            print("Se apaga")
+        elif(state == "Encender"):
+            # os.system("xset dpms force on")
+            code = identification()
+            
+        if code is not "":
+            check_RDIF_code(code)
 
 except KeyboardInterrupt:
-	GPIO.cleanup()
+    print("cpntrol+c")
     #print(user_ID)
     #insert_record_value(user_ID)
 
 finally:
 	arduino.close()
+	GPIO.cleanup()
