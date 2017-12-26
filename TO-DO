@@ -1,0 +1,10 @@
+-Crear paginas HTML
+-Instalar y activar SPI y MRFC22 para python
+-Crear la opcion de que un usuario no registrado pueda hacerlo (se le da un codigo temporal cuando pasa el rfid y desde el movil se logea y se registra)
+-Conseguir que alexa detecte el microfono y altavoces
+-Añadir los usuarios a la bbdd (se necesita pasar las tarjetas de todos ya que al final manejaremos el nº en decimal)
+
+
+CUANDO SE TENGA ALEXA
+-Meter spotify
+-Buscar si existen mas cosas interesantes
