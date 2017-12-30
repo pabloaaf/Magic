@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		
+		<script>
+			function readTextFile(file){
+				var rawFile = new XMLHttpRequest();
+				rawFile.open("GET", file, false);
+				rawFile.onreadystatechange = function ()
+				{
+					if(rawFile.readyState === 4)
+					{
+						if(rawFile.status === 200 || rawFile.status == 0)
+						{
+							var allText = rawFile.responseText;
+							document.getElementById('prueba').innerHTML += allText;
+						}
+					}
+				}
+				rawFile.send(null);
+			}
+		</script>
+	
+	</head>
+	
+	<body onload=readTextFile('file.txt')>
+		<h1>Hola</h1>
+		<div id = "prueba"></div>
+		
+	</body>
+	
+</html>
