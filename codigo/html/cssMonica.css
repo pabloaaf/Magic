@@ -1,0 +1,47 @@
+body{
+	background-color: black;
+}
+.Bienvenida{
+	color:white;
+	font-family: 'Pacifico';
+	font-size: 35px;
+	text-align: center;
+	margin-bottom: 1px;
+	margin-top: 0px;
+}
+.izquierda{
+	width: 50%;
+	float: left;
+}
+.derecha{
+	width: 50%;
+	float: right;
+}
+.general{
+	width: 100%
+}
+.reloj{
+	margin-left: 150px;
+}
+.subparrafo{
+	color:white;
+	font-family: 'Pacifico';
+	font-size: 20px;
+	text-align: center;
+	text-decoration: underline;
+}
+.saludoInicial{
+	color:white;
+	font-family: 'Pacifico';
+	font-size: 100px;
+	text-align: center;
+	margin-bottom: 10px;
+	margin-top: 30px;
+}
+.frase{
+	color:white;
+	font-family:'Pacifico';
+	font-size:23px;
+	text-align:center;
+	margin-bottom:5%;
+}
