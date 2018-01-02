@@ -1,0 +1,2 @@
+unclutter -idle 0.1 -root &
+chromium-browser --kiosk www.google.es
