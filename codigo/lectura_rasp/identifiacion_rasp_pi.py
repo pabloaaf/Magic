@@ -6,6 +6,10 @@ import RPi.GPIO as GPIO
 import MFRC522
 import signal
 
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import ui
+from selenium.webdriver.chrome.options import Options
 
 def identification():
     # Crea un objeto de la clase MFRC522
@@ -38,13 +42,13 @@ def check_RDIF_code(code):
     if(ID is not(None)):
         print("Buscar html del usuario ID")
         cursor.execute("UPDATE Usuario SET Codigo_temporal = %s WHERE Usuario.ID_Usuario = %s;", (code_temp, ID[0]))
-        os.system("chromium-browser %U http://localhost/BasePablo.html")
+        driver.get("http://localhost/registrado.html")
     else:
         print("Anadir nuevo usuario y mostras pagina base")
         query = "INSERT INTO `Usuario` (`ID_Usuario`, `Nombre`, `Codigo_RFID`, `Codigo_temporal`) VALUES (NULL, 'unknown', '%s', '%s');" %(code, code_temp)
         print(query)
         cursor.execute(query)
-        os.system("chromium-browser %U http://localhost/sinregistrar.html")
+        driver.get("http://localhost/sinregistrar.html")
 
     return;
 
@@ -80,6 +84,16 @@ def insert_record_value(user_ID):
 
 '''
 try:
+    chrome_options = Options()
+    chrome_options.add_argument("--start-maximized")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-web-security")
+    chrome_options.add_argument("--ignore-certificate-errors")
+    chrome_options.add_argument("--kiosk")
+    chrome_options.add_argument("--disable-password-manager-reauthentication")
+    driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver')  # Optional argument, if not specified will search path.
+    
+    driver.get("http://localhost/")
     while True:
         arduino = serial.Serial('/dev/ttyACM0', 9600)
         state = arduino.readline().decode("utf-8")
@@ -102,3 +116,4 @@ except KeyboardInterrupt:
 finally:
 	arduino.close()
 	GPIO.cleanup()
+	driver.close()
