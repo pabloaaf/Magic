@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>IndexPablo</title>
+	<style>
+		body {
+    		color: white;
+		}
+	</style>
+	<script>
+	function startDate() {
+		var today = new Date();
+		var city = "León";
+		var day = today.getDate();
+		var month = today.getMonth();
+		var year = today.getFullYear();
+		document.getElementById('fecha').innerHTML = city + ", " + day + "/" + month + "/" + year;
+	}
+	</script>
+</head>
+<body bgcolor="black" onload="startDate()">
+	<table align="left">
+	  <caption>Current Time & Date<hr></caption>
+	  <tr>
+	    <td>
+	    	<iframe scrolling="no" frameborder="no" clocktype="html5" style="overflow:hidden;border:0;margin:0;padding:0;width:240px;height:80px;"src="http://www.clocklink.com/html5embed.php?clock=004&timezone=CET&color=white&size=240&Title=&Message=&Target=&From=2017,1,1,0,0,0&Color=white"></iframe>
+	    	<p id="fecha"></p>
+	    </td>
+	  </tr>
+	</table>
+
+	<table align="right">
+	  <caption>Current Weather<hr></caption>
+	  <tr>
+	    <td>
+			<iframe src="https://www.meteoblue.com/en/weather/widget/three/le%c3%b3n_spain_3118532?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=dark"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups" style="width: 460px;height: 596px"></iframe>
+	    </td>
+	  </tr>
+	</table>
+
+	<div id="frase"></div>
+
+</body>
+</html>

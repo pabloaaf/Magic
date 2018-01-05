@@ -1,0 +1,4 @@
+@/usr/bin/chromium-browser --kiosk --noerrdialogs --disable-session-crashed-bubble --disable-infobars --ignore-certificate-e$cate-errors --disable-restore-session-state http://localhost/index.html
+
+@/home/pi/Desktop/execute_alexa.sh
+@/usr/bin/python3 /home/pi/Magic/codigo/lectura_rasp/identifiacion_rasp_pi.py
