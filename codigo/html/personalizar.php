@@ -38,7 +38,7 @@
 							alert("Opciones cambiadas correctamente.");
 						}
 					};
-					xmlhttp.open("GET", "tratarDatos.php?idUser=" + idUser "&reloj_booleano=" + reloj_booleano + "&reloj_tamano=" + reloj_tamano + "&reloj_tipo=" + reloj_tipo +
+					xmlhttp.open("GET", "tratarDatos.php?reloj_booleano=" + reloj_booleano + "&reloj_tamano=" + reloj_tamano + "&reloj_tipo=" + reloj_tipo +
 					"&tiempo_booleano=" + tiempo_booleano + "&tiempo_tamano=" + tiempo_tamano + "&tiempo_tipo=" + tiempo_tipo + "&calendario_booleano=" + calendario_booleano, true);
 					xmlhttp.send();
 			}

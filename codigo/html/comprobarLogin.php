@@ -15,7 +15,7 @@
 	
 	if ($lista = $resultado->fetch_array()){
 		echo "Código temporal válido.";
-		$_SESSION["Codigo_temporal"] = $codigoTemporal;
+		$_SESSION["idUser"] = $lista['idUser'];
 	}else
 		echo "Código temporal no válido.";
 

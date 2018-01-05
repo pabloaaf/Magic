@@ -1,6 +1,7 @@
 <?php
 
-	$idUser = $_REQUEST["idUser"];
+	session_start()
+	$idUser = $_SESSION["idUser"];
 
 	$reloj_booleano = $_REQUEST["reloj_booleano"];
 	$reloj_tamano = $_REQUEST["reloj_tamano"];
