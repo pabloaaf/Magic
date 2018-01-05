@@ -1,14 +1,15 @@
 <?php
 	include("conexion.php");
-	$sql_consulta="SELECT * FROM widgets WHERE idUser='2'";
+	$sql_consulta="SELECT * FROM widgets WHERE idUser='4'";
 	$resultados=$conex->query($sql_consulta);
 	
 	$reloj_booleano=0;
 	$reloj_tipo=0;
 	$reloj_tamano=0;
-	$tiempo_booleano=1;
-	$tiempo_tipo=4;
-	$tiempo_tamano=3;
+	$tiempo_booleano=0;
+	$tiempo_tipo=0;
+	$tiempo_tamano=0;
+	$calendario_booleano=0;
 	while($fila=$resultados->fetch_array()){
 		$reloj_booleano=$fila['reloj_booleano'];
 		$reloj_tipo=$fila['reloj_tipo'];
@@ -16,6 +17,7 @@
 		$tiempo_booleano=$fila['tiempo_booleano'];
 		$tiempo_tamano=$fila['tiempo_tamano'];
 		$tiempo_tipo=$fila['tiempo_tipo'];
+		$calendario_booleano=$fila['calendario_booleano'];
 	}
 
 ?>
@@ -24,7 +26,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Registrado</title>
-	<link href="cssMonica.css" rel="stylesheet">
+	<link href="cssMirror.css" rel="stylesheet">
 	<link href="styleCalendar.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 	<script>
@@ -110,7 +112,11 @@
 			
 			  	<tr>
 			  		<td>
-			  			<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=WEEK&amp;height=500&amp;wkst=2&amp;bgcolor=%23ccccc0&amp;src=dennysmclaughlin%40gmail.com&amp;color=%231B887A&amp;src=calendario.lectivo.ule%40gmail.com&amp;color=%23691426&amp;src=%23contacts%40group.v.calendar.google.com&amp;color=%23125A12&amp;src=es.spain%23holiday%40group.v.calendar.google.com&amp;color=%230F4B38&amp;src=q0cpg6t5nt3saqp3aibosafvcc%40group.calendar.google.com&amp;color=%232F6309&amp;ctz=Europe%2FMadrid" style="border:solid 4px #669999" width="400" height="400" frameborder="0" scrolling="no"></iframe>
+			  			<?php 
+					if ($calendario_booleano == 1) {
+			  			echo '<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=WEEK&amp;height=500&amp;wkst=2&amp;bgcolor=%23ccccc0&amp;src=dennysmclaughlin%40gmail.com&amp;color=%231B887A&amp;src=calendario.lectivo.ule%40gmail.com&amp;color=%23691426&amp;src=%23contacts%40group.v.calendar.google.com&amp;color=%23125A12&amp;src=es.spain%23holiday%40group.v.calendar.google.com&amp;color=%230F4B38&amp;src=q0cpg6t5nt3saqp3aibosafvcc%40group.calendar.google.com&amp;color=%232F6309&amp;ctz=Europe%2FMadrid" style="border:solid 4px #669999" width="400" height="400" frameborder="0" scrolling="no"></iframe>';
+			  		}
+			  		?>
 			  		</td>
 			  	</tr>
 			</table>
@@ -168,6 +174,11 @@
 	</table>
 	<footer class="Footer">
 		<p class="frase" id="frase"></p>
-  	</footer>	
+		<div id="edicion" style="position:absolute; bottom:5px; right:5px">
+			<a href="edicion.php">
+				<img src="./herramienta.jpg" height=50 width=50>
+			</a>
+		</div>
+	</footer>
 </body>
 </html>
