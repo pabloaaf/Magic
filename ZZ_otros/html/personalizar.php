@@ -11,9 +11,10 @@
 		
 		<script>
 			function tratarDatos() {
-					var idUser = 1;		//OJO CUIDADO
 					
 					//Obtenemos todos los datos
+					var nombre = document.getElementById("reloj_booleano").value;
+					
 					var tmp = document.getElementById("reloj_booleano");
 					var reloj_booleano = tmp.options[tmp.selectIndex].value;
 					tmp = document.getElementById("reloj_tamaño");
@@ -38,7 +39,7 @@
 							alert("Opciones cambiadas correctamente.");
 						}
 					};
-					xmlhttp.open("GET", "tratarDatos.php?reloj_booleano=" + reloj_booleano + "&reloj_tamano=" + reloj_tamano + "&reloj_tipo=" + reloj_tipo +
+					xmlhttp.open("GET", "tratarDatos.php?nombre=" + nombre + "&reloj_booleano=" + reloj_booleano + "&reloj_tamano=" + reloj_tamano + "&reloj_tipo=" + reloj_tipo +
 					"&tiempo_booleano=" + tiempo_booleano + "&tiempo_tamano=" + tiempo_tamano + "&tiempo_tipo=" + tiempo_tipo + "&calendario_booleano=" + calendario_booleano, true);
 					xmlhttp.send();
 			}
@@ -48,6 +49,10 @@
 	<body>
 	
 		<form>
+		
+			<!--NOMBRE-->
+			<p>Cambia tu nombre de usuario si lo deseas:</p>
+			<input type="text" name="nombre" id="nombre">
 		
 			<!--RELOJ-->
 		

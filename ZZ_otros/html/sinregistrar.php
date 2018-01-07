@@ -19,35 +19,26 @@
 	<body bgcolor="black">
 		
 		<div>
+			<h1> Bienvenido al espejo mágico </h1>
 			<p> Accede a esta dirección en un navegador web para personalizar el espejo: </p>
 			<h1> <?php $shell = shell_exec("hostname -I");
 					echo $shell?> </h1>
 			
 			<p> Esta es tu clave de usuario. ¡Irá cambiando cada vez que accedas! </p>
 			<h1> <?php 
-					$conexion = new mysqli('localhost', 'root', '', 'smartmirror');
+					$conexion = new mysqli('localhost', 'root', '', 'MagicMirror');
 	
 					if ($conexion->connect_error) { 
 						die('Error de Conexión'. $conexion->connect_error);
 					}
 					
-					$resultado = compararExistentes($conexion);
+					$query = "SELECT * FROM `usuario` ORDER BY ID_Usuario DESC";
+					$resultado = conexion->query($query);
 					$lista = $resultado->fetch_array();
-					$random == $lista['Codigo_temporal'];
+					$random = $lista['Codigo_temporal'];
 					
 					echo $random; ?>
 					
 	</body>
 
 </html>
-
-
-<?php 
-
-function conseguirRandom($conexion, $idUser) {
-			
-	$query = "SELECT * FROM usuarios WHERE ID_";
-	$resultado = $conexion->query($query);
-	
-	return $resultado;
-}
