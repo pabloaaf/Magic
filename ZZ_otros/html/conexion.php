@@ -1,8 +1,8 @@
 <?php
 	$servidor="localhost";
 	$dbusuario="root";
-	$dbpass="";
-	$dbnombre="smartmirror";
+	$dbpass="base de datos";
+	$dbnombre="SmartMirror";
 
 	$conex= new mysqli($servidor,$dbusuario,$dbpass, $dbnombre);
 	if($conex->connect_errno>0){
