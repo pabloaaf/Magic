@@ -17,9 +17,26 @@
 		var year = today.getFullYear();
 		document.getElementById('fecha').innerHTML = city + ", " + day + "/" + month + "/" + year;
 	}
+	function readTextFile(file){
+			var allText;
+			var rawFile = new XMLHttpRequest();
+			rawFile.open("GET", file, false);
+			rawFile.onreadystatechange = function (){
+				if(rawFile.readyState === 4){
+					if(rawFile.status === 200 || rawFile.status == 0){
+						allText = rawFile.responseText;
+					}
+				}
+			}
+			rawFile.send(null);
+			var frases=allText.split(",-");
+			var aleatorio = Math.floor(Math.random() * frases.length + 1);
+			var fraseElegida=frases[aleatorio-1];
+			document.getElementById("frase").innerHTML = fraseElegida;
+		}
 	</script>
 </head>
-<body bgcolor="black" onload="startDate()">
+<body bgcolor="black" onload="startDate();readTextFile('file.txt')">
 	<table align="left">
 	  <caption>Current Time & Date<hr></caption>
 	  <tr>
@@ -38,8 +55,9 @@
 	    </td>
 	  </tr>
 	</table>
-
-	<div id="frase"></div>
+	<div style="position: absolute; bottom:0">
+                <p id="frase"></p>
+        </div>
 
 </body>
 </html>

@@ -47,19 +47,22 @@ def check_RDIF_code(code):
         print("Buscar html del usuario ID")
         cursor.execute("UPDATE Usuario SET Codigo_temporal = %s WHERE Usuario.ID_Usuario = %s", (code_temp, ID[0]))
         connection.commit()
-        driver.get("http://localhost/registrado.html")
+        driver.get("http://localhost/registrado.php")
+        search_box = driver.find_element_by_name('codigo')
+        search_box.send_keys(code_temp)
+        search_box.submit()
     else:
         print("Anadir nuevo usuario y mostras pagina base")
         cursor.execute("INSERT INTO Usuario (Nombre, Codigo_RFID, Codigo_temporal) VALUES('unknown', %s, %s)", (code, code_temp))
         connection.commit()
-        driver.get("http://localhost/sinregistrar.html")
+        driver.get("http://localhost/sinregistrar.php")
 
     time.sleep(5)
     return;
 
 def generate_code_temp(cursor):
     longitud = 10
-    valores = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<=>@#%&+"
+    valores = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     while True:
         p = ""
         p = p.join([choice(valores) for i in range(longitud)])
@@ -69,37 +72,20 @@ def generate_code_temp(cursor):
             return p;
         print(p)
 
-def insert_record_value(user_ID):
-    connection = pymysql.connect("localhost", "phpmyadmin", "culodeadriana", "MagicMirror")
-    
-    cursor = connection.cursor()
- 
-    
-    try:
-        cursor.execute("INSERT INTO Login (ID) VALUES (%s)", int(user_ID))
-        connection.commit()
-    except Exception as e:
-        print("Error al insertar valor en tabla Login \n")
-        print(e)
-        connection.rollback()
-        
-    connection.close()
-    return;
-
-def sensor(driver):
+def sensor():
+    global glo_apagar
+    global glo_parar
     arduino = serial.Serial('/dev/ttyACM0', 9600)
-    while True:
+    while glo_parar:
         state = arduino.readline().decode("utf-8")
         state = state[:-2]
         print(state)
         if(state == "Apagar"):
             os.system("xset dpms force off")
-            driver.get("http://localhost/")
             print("Se apaga")
+            glo_apagar = 1
         elif(state == "Encender"):
             os.system("xset dpms force on")
-            print("Se encen")
-
             
     arduino.close()        
     return;
@@ -115,7 +101,11 @@ def sensor(driver):
     -Si no hay nadie: se apaga la pantalla y se espera al siguiente mensaje de arduino
 
 '''
+glo_apagar = 0
+glo_parar = 1
 try:
+    
+    
 ##    time.sleep(40)
     chrome_options = Options()
     chrome_options.add_argument("--no-sandbox")
@@ -126,9 +116,9 @@ try:
     chrome_options.add_argument("--disable-password-manager-reauthentication")
     driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', chrome_options=chrome_options)  # Optional argument, if not specified will search path.
     
-    driver.get("http://localhost/")
+    driver.get("http://localhost/inicio.html")
 
-    thread_sensor = threading.Thread(target=sensor, args=([driver]), name='Sensor')
+    thread_sensor = threading.Thread(target=sensor, name='Sensor')
 
     thread_sensor.start()
     '''while True:
@@ -151,7 +141,9 @@ try:
         code = identification()
         if code is not "":
             check_RDIF_code(code)
-        
+        if glo_apagar:
+            driver.get("http://localhost/inicio.html")
+            glo_apagar = 0
         
 except KeyboardInterrupt:
     print("control+c")
@@ -159,5 +151,6 @@ except KeyboardInterrupt:
     #insert_record_value(user_ID)
 
 finally:
-	GPIO.cleanup()
-	driver.close()
+    GPIO.cleanup()
+    driver.close()
+    glo_parar = 0
