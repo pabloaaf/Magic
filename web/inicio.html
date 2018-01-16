@@ -3,11 +3,26 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>IndexPablo</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 	<style>
 		body {
     		color: white;
 		}
+
+		h1 {
+			position: absolute;
+			bottom: 0;
+			margin-left: 15%;
+			margin-right: 15%;
+			text-align: center;
+		}
+
+
 	</style>
+
+
 	<script>
 	function startDate() {
 		var today = new Date();
@@ -17,6 +32,8 @@
 		var year = today.getFullYear();
 		document.getElementById('fecha').innerHTML = city + ", " + day + "/" + month + "/" + year;
 	}
+
+
 	function readTextFile(file){
 			var allText;
 			var rawFile = new XMLHttpRequest();
@@ -34,7 +51,13 @@
 			var fraseElegida=frases[aleatorio-1];
 			document.getElementById("frase").innerHTML = fraseElegida;
 		}
+		$(document).ready(function(){
+			$("#frase").delay(7000).animate({
+       			 opacity: '0.3'
+    }, 4000);
+		});
 	</script>
+
 </head>
 <body bgcolor="black" onload="startDate();readTextFile('file.txt')">
 	<table align="left">
@@ -55,9 +78,8 @@
 	    </td>
 	  </tr>
 	</table>
-	<div style="position: absolute; bottom:0">
-                <p id="frase"></p>
-        </div>
+                <h1 id="frase"></h1>
+
 
 </body>
 </html>
