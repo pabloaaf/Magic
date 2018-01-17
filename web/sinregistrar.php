@@ -28,7 +28,7 @@
 			<p> Esta es tu clave de usuario. ¡Irá cambiando cada vez que accedas! </p>
 			<h1> <?php 
 					$conexion = new mysqli('localhost', 'phpmyadmin', 'culodeadriana', 'MagicMirror');
-	
+
 					if ($conexion->connect_error) { 
 						die('Error de Conexión'. $conexion->connect_error);
 					}

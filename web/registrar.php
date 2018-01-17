@@ -3,6 +3,15 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Registrado</title>
+		<style type="text/css">
+		h1 {
+			position: absolute;
+			bottom: 0;
+			margin-left: 15%;
+			margin-right: 15%;
+			text-align: center;
+		}
+		</style>
 		<script>
 			function readTextFile(file){
 				var allText;
@@ -21,6 +30,11 @@
 				var fraseElegida=frases[aleatorio-1];
 				document.getElementById("frase").innerHTML = fraseElegida;
 			}
+					$(document).ready(function(){
+			$("#frase").delay(7000).animate({
+       			 opacity: '0.3'
+    }, 4000);
+		});
 		</script>
 	</head>
 
@@ -53,9 +67,7 @@
                 $tiempo_tamano=$fila['tiempo_tamano'];
                 $tiempo_tipo=$fila['tiempo_tipo'];
                 $calendario_booleano=$fila['calendario_booleano'];
-        }
-	?>
-
+        }?>
 			<table align="left">
 			 	<caption>Fecha y hora<hr></caption>
 			 	<tr>
@@ -77,7 +89,6 @@
 							case 4:
 								$string_reloj=' src="http://free.timeanddate.com/clock/i61z30i3/n141/tles4/fn2/fs26/tcccc/bas2/bat5/bacfff/pl0/th2" frameborder="0" width="179" height="43"></iframe>';
 								break;
-
 							}
 								switch ($reloj_tamano) {
 								    case 1:
@@ -90,23 +101,16 @@
 									$string_reloj='<iframe class="reloj_3"'.$string_reloj;
 									break;
 								}
-						echo $string_reloj;
-
 						}
 						?>
 			    		</td>
-				</tr>
-				<tr>
-					<td>
-			    			<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showDate=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;mode=WEEK&amp;height=500&amp;wkst=2&amp;bgcolor=%23000000&amp;src=h8kdhu20vbv8dcvgo7upjh8r08%40group.calendar.google.com&amp;color=%238D6F47&amp;src=chdh0q41r0197rjfjv3ffmv01c%40group.calendar.google.com&amp;color=%238D6F47&amp;src=4t1limbadq5nkc4dp10l1tnnsg%40group.calendar.google.com&amp;color=%23865A5A&amp;src=8ik4pa8muh7rdrbhnl2o8sv0sk%40group.calendar.google.com&amp;color=%23AB8B00&amp;src=g6suss31cdrlnuiud2gloqfhrg%40group.calendar.google.com&amp;color=%2342104A&amp;src=d799happoqcm463oj82h0923rs%40group.calendar.google.com&amp;color=%23333333&amp;src=i9933rf9ad8p4g5dbp28kunb0s%40group.calendar.google.com&amp;color=%23182C57&amp;src=njthr6mdlq6gvf7djibomu3evo%40group.calendar.google.com&amp;color=%232F6309&amp;src=2iop0k15tc3uil7hphonshop20%40group.calendar.google.com&amp;color=%23333333&amp;src=37aspgsa4qn7dqm15al1vbvc2g%40group.calendar.google.com&amp;color=%230F4B38&amp;src=td7p8m9aojlg48fijgp4rsocvk%40group.calendar.google.com&amp;color=%232F6309&amp;src=936aioqrpu99uln7purrgmcdng%40group.calendar.google.com&amp;color=%23691426&amp;src=calendario.lectivo.ule%40gmail.com&amp;color=%23691426&amp;ctz=Europe%2FMadrid" style="border-width:0" width="400" height="500" frameborder="0" scrolling="no"></iframe>
-	  				</td>
 				</tr>
 
 			  	<tr>
 			  		<td>
 			  			<?php
 							if ($calendario_booleano == 1) {
-					  			echo '<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=WEEK&amp;height=500&amp;wkst=2&amp;bgcolor=%23ccccc0&amp;src=dennysmclaughlin%40gmail.com&amp;color=%231B887A&amp;src=calendario.lectivo.ule%40gmail.com&amp;color=%23691426&amp;src=%23contacts%40group.v.calendar.google.com&amp;color=%23125A12&amp;src=es.spain%23holiday%40group.v.calendar.google.com&amp;color=%230F4B38&amp;src=q0cpg6t5nt3saqp3aibosafvcc%40group.calendar.google.com&amp;color=%232F6309&amp;ctz=Europe%2FMadrid" style="border:solid 4px #669999" width="400" height="400" frameborder="0" scrolling="no"></iframe>';
+					  			echo '<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showDate=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;mode=WEEK&amp;height=500&amp;wkst=2&amp;bgcolor=%23000000&amp;src=h8kdhu20vbv8dcvgo7upjh8r08%40group.calendar.google.com&amp;color=%238D6F47&amp;src=chdh0q41r0197rjfjv3ffmv01c%40group.calendar.google.com&amp;color=%238D6F47&amp;src=4t1limbadq5nkc4dp10l1tnnsg%40group.calendar.google.com&amp;color=%23865A5A&amp;src=8ik4pa8muh7rdrbhnl2o8sv0sk%40group.calendar.google.com&amp;color=%23AB8B00&amp;src=g6suss31cdrlnuiud2gloqfhrg%40group.calendar.google.com&amp;color=%2342104A&amp;src=d799happoqcm463oj82h0923rs%40group.calendar.google.com&amp;color=%23333333&amp;src=i9933rf9ad8p4g5dbp28kunb0s%40group.calendar.google.com&amp;color=%23182C57&amp;src=njthr6mdlq6gvf7djibomu3evo%40group.calendar.google.com&amp;color=%232F6309&amp;src=2iop0k15tc3uil7hphonshop20%40group.calendar.google.com&amp;color=%23333333&amp;src=37aspgsa4qn7dqm15al1vbvc2g%40group.calendar.google.com&amp;color=%230F4B38&amp;src=td7p8m9aojlg48fijgp4rsocvk%40group.calendar.google.com&amp;color=%232F6309&amp;src=936aioqrpu99uln7purrgmcdng%40group.calendar.google.com&amp;color=%23691426&amp;src=calendario.lectivo.ule%40gmail.com&amp;color=%23691426&amp;ctz=Europe%2FMadrid" style="border-width:0" width="400" height="500" frameborder="0" scrolling="no"></iframe>';
 					  		}
 				  		?>
 			  		</td>
@@ -154,8 +158,19 @@
 				</tr>
 
 			</table>
-		<div style="position: absolute; bottom:0">
-			<p id="frase"></p>
-		</div>
+			<h1 id="frase"></h1>
+			<table style="position: absolute;bottom: 0; right: 0;" border="1">
+				<tr>
+					<td>
+						<?php $shell = exec("hostname -I");
+					echo $shell;?>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<?php echo $_REQUEST['codigo'];?>
+					</td>
+				</tr>
+			</table>
 	</body>
 </html>
