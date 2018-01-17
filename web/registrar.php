@@ -3,6 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Registrado</title>
+		<link rel="stylesheet" type="text/css" href="estilos.css">
 		<style type="text/css">
 		h1 {
 			position: absolute;
@@ -77,7 +78,7 @@
 							$string_reloj='';
 							switch ($reloj_tipo) {
 							case 1:
-								$string_reloj=' src="http://free.timeanddate.com/clock/i61z30i3/n141/szw110/szh110/hocfff/hbw1/hfc099/cf100/hnc000/hcd72/fav0/fiv0/mqcff9/mqs1/mql16/mqw4/mqd100/mhcfff/mhs4/mhl23/mhw6/mhd100/mmv0/hhcff9/hhs3/hhb0/hhw8/hmcff9/hms3/hmw8" frameborder="0" width="110" height="110"></iframe>';
+								$string_reloj=' src="http://free.timeanddate.com/clock/i603yqp6/n5646/szw110/szh110/hbw0/hfc000/cf100/hgr0/fav0/fiv0/mqcfff/mql15/mqw4/mqd94/mhcfff/mhl15/mhw4/mhd94/mmv0/hhcbbb/hmcddd/hsceee" frameborder="0" width="110" height="110"></iframe>';
 								break;
 							case 2:
 								$string_reloj=' src="http://free.timeanddate.com/clock/i61yyps9/n141/szw110/szh110/hoc000/hfc999/cf100/hnc000/fas28/facfff/fnu2/fdi78/mqc009" frameborder="0" width="110" height="110"></iframe>';
@@ -89,6 +90,10 @@
 							case 4:
 								$string_reloj=' src="http://free.timeanddate.com/clock/i61z30i3/n141/tles4/fn2/fs26/tcccc/bas2/bat5/bacfff/pl0/th2" frameborder="0" width="179" height="43"></iframe>';
 								break;
+							case 5:
+								$string_reloj = ' src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=large&timezone=Europe%2FMadrid" width="100%" height="140" frameborder="0" seamless></iframe>';
+							case 6:
+								$string_reloj = ' scrolling="no" frameborder="no" clocktype="html5" style="overflow:hidden;border:0;margin:0;padding:0;width:240px;height:80px;"src="http://www.clocklink.com/html5embed.php?clock=004&timezone=CET&color=white&size=240&Title=&Message=&Target=&From=2017,1,1,0,0,0&Color=white"></iframe>';
 							}
 								switch ($reloj_tamano) {
 								    case 1:

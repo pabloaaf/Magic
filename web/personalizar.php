@@ -60,17 +60,19 @@
 			
 			<p>Selecciona un tamaño para el reloj</p>
 			<select name="reloj_tamaño" id="reloj_tamaño">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
+				<option value="1">Pequeño</option>
+				<option value="2">Mediano</option>
+				<option value="3">Grande</option>
 			</select>
 			
 			<p>Selecciona un tipo de reloj</p>
 			<select name="reloj_tipo" id="reloj_tipo">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
+				<option value="1">Analógico 1</option>
+				<option value="2">Analógico 2</option>
+				<option value="3">Digital 1</option>
+				<option value="4">Digital 2</option>
+				<option value="5">Digital 3</option>
+				<option value="6">Digital 4</option>
 			</select>
 			
 			<!--TIEMPO-->
@@ -83,9 +85,9 @@
 			
 			<p>Selecciona un tamaño para el tiempo</p>
 			<select name="tiempo_tamaño" id="tiempo_tamaño">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
+				<option value="1">Pequeño</option>
+				<option value="2">Mediano</option>
+				<option value="3">Grande</option>
 			</select>
 			
 			<p>Selecciona un tipo de tiempo</p>

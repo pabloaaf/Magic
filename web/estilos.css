@@ -1,0 +1,25 @@
+.reloj_1{
+	margin-left: 38%;
+	transform: scale(0.8);
+}
+.reloj_2{
+	margin-left: 38%;
+	transform: scale(1.1);
+}
+.reloj_3{
+	margin-left: 38%;
+	transform: scale(1.4);
+	margin-top: 4%;
+}
+.tiempo_1{
+	margin-top: 5%;
+	transform: scale(0.7);
+}
+.tiempo_2{
+	margin-top: 5%;
+	transform: scale(0.8);
+}
+.tiempo_3{
+	margin-top: 5%;
+	transform: scale(1.0);
+}
