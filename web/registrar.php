@@ -70,7 +70,7 @@
                 $calendario_booleano=$fila['calendario_booleano'];
         }?>
 			<table align="left">
-			 	<caption>Fecha y hora<hr></caption>
+			 	<!--<caption>Fecha y hora<hr></caption>-->
 			 	<tr>
 			    		<td class="reloj">
 						<?php 
@@ -122,7 +122,7 @@
 			  	</tr>
 			</table>
 			<table align="right">
-			 	<caption>Tiempo<hr></caption>
+			 	<!--<caption>Tiempo<hr></caption>-->
 			 	<tr>
 			    		<td>
 			    			<?php
