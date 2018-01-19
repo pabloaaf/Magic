@@ -37,9 +37,19 @@
 					$resultado = $conexion->query($query);
 					$lista = $resultado->fetch_array();
 					$random = $lista['Codigo_temporal'];
-					
-					echo $random; ?>
+					$id = $lista['ID_Usuario'];
+
+
+					echo $random;
+
+					$query = "INSERT INTO Personalizaciones VALUES ($id, 1, 1, 1, 1, 1, 1, 1)";
+					$conexion->query($query); ?>
 			</h1>
+
+			<h1>A partir de ahora siempre que pases tu tarjeta por el lector aparecerá tu espacio personal!! </h1>
+			<h1>Cuando quieras personalizar tu espacio, tienes que entrar a la dirección del espejo que aparecee en la esquina inferior derecha. 
+			Accede desde un dispositivo como tu teléfono u ordenador, y en el campo requerido introduce el código
+			temporal que te haya mostrado el espejo</h1>
 		</div>
 					
 	</body>
