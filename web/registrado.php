@@ -3,6 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Registrado</title>
+		<link rel="stylesheet" type="text/css" href="estilos.css">
 		<style type="text/css">
 		h1 {
 			position: absolute;
