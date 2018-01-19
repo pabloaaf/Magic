@@ -1,0 +1,11 @@
+-Cambiar en el fichero ~./asoundrc la parte de mco por:
+	pcm.!default {
+		type plug
+		slave {
+			pcm "plughw:0,0"
+		}	
+	}
+
+-Comentar la linea dtparam=audio=on en el fichero /boot/config.txt
+
+-Comentar la linea snd-usb-audio index=-2 en el fichero /lib/modprobe.d/aliases.conf
